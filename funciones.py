@@ -5,6 +5,7 @@
 #Versión: 3.11.4
 ###################################################################
 
+
 #1. Elevar un número a la potencia
 def elevarNúmero(n, exp):
     """
@@ -56,17 +57,25 @@ def sumarMultiplos (n, mult):
 def obtenerFibonacci(n):
     """
     """
-    res=0
-    whi n >= 1:
-        while n>=0:
-            res=(n-1)+(n-2)
-    elif n==0:
-        return print(res)
-
-
-
     return
-#Programa principal
-n=int(input("n: "))
-mult=int(input("mult: "))
-sumarMultiplos (n, mult)
+
+#6. Número perfecto
+def esPerfecto(n):
+    """
+    """
+    divisor=1
+    numPerf=0
+    while divisor!=n:
+        if n%divisor==0:
+            numPerf+=divisor
+        divisor+=1
+    else:
+        if numPerf==n:
+            return print(True)
+        else:
+            return print(False)
+
+    
+#prueba
+n=int(input("n: ")) 
+esPerfecto(n)
