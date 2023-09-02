@@ -4,8 +4,6 @@
 #Última edición: 01/09/2023 Hora:
 #Versión: 3.11.4
 ###################################################################
-
-
 #1. Elevar un número a la potencia
 def elevarNúmero(n, exp):
     """
@@ -32,12 +30,19 @@ def obtenerSumatoria(n):
 def esNumeroPrimo(n):
     """
     """
-    i=1
-    while i<=n:
-        if n%i==0:
+    if n>1:
+        i = 2
+        contador=0
+        while i<n and contador==0:
+            num=n%i
+            if num==0:
+                contador+=1
             i+=1
-
-    return
+        if contador==0:
+            return print(True)
+        else:
+            return print(False)
+    return ""
 
 #4. Sumar digitos múltiplos
 def sumarMultiplos (n, mult):
@@ -53,29 +58,63 @@ def sumarMultiplos (n, mult):
     return print(res)
 
 #5. Fibonacci
-
 def obtenerFibonacci(n):
     """
     """
-    return
+    if n<=1:
+        return n
+    else:
+        return obtenerFibonacci(n - 1) + obtenerFibonacci(n - 2)
 
 #6. Número perfecto
 def esPerfecto(n):
     """
     """
-    divisor=1
-    numPerf=0
-    while divisor!=n:
-        if n%divisor==0:
-            numPerf+=divisor
-        divisor+=1
+    divisor = 1
+    numPerf = 0
+    while divisor != n:
+        if n % divisor == 0:
+            numPerf += divisor
+        divisor += 1
     else:
-        if numPerf==n:
+        if numPerf == n:
             return print(True)
         else:
             return print(False)
+    return
+#7. Maximo común divisor MCD
+def obtenerMCD(n, m):
+    """
+    """
+    divisorMN = 2    
+    mcd = 1
+    while n > 1 or m > 1:
+        if n % divisorMN == 0 and m % divisorMN == 0:
+            mcd*=divisorMN
+            n//=divisorMN
+            m//=divisorMN
+        else:
+            divisorMN+=1   
+    return print(mcd)      
 
+#8. Mínimo común múltiplo MCM
+def obtenerMCM(n,m):
+    """
+    """
+    divisorMN = 2    
+    mcm = 1
+    while n > 1 or m > 1:
+        if n % divisorMN == 0 or m % divisorMN == 0:
+            if n % divisorMN == 0:
+                n //= divisorMN
+            if m % divisorMN == 0:
+                m //= divisorMN
+            mcm *= divisorMN
+        else:
+            divisorMN += 1
+    return print(mcm)
     
-#prueba
-n=int(input("n: ")) 
-esPerfecto(n)
+#Programa principal
+n=int(input("n: "))
+m=int(input("m: "))
+print(obtenerMCD(n, m))
