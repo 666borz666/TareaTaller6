@@ -13,10 +13,11 @@ def elevarNumeroAux(n, exp):
     E (int): Valores ingresados por el usuario
     S (func or string): Función ya validada o mensaje del error
     """
-    if isinstance(n and exp, int)==False:
-        return "Ambos datos deben ser enteros positivos mayores o iguales que cero."
-    else: 
-        elevarNumero(n, exp)
+    if isinstance(n, int) and isinstance(exp, int):
+        if n<0 or exp<0:
+            return print("Ambos números deben ser enteros positivos mayores o iguales que cero")
+        else: 
+            return elevarNumero(n, exp)
     return ""
     
 def opcionelevarNumero(n,exp):
@@ -32,7 +33,7 @@ def opcionelevarNumero(n,exp):
             exp=int(input("Digite el valor del exponente: "))
             return print(elevarNumeroAux(n, exp))
         except:
-            return "Los valores deben ser números enteros."
+            return print("Los valores deben ser números enteros.")
 #2
 def obtenerSumatoriaAux(n):
     """
@@ -40,12 +41,11 @@ def obtenerSumatoriaAux(n):
     E (int): Valores ingresados por el usuario
     S (func or string): Función ya validada o mensaje del error
     """
-    if isinstance(n, int)==True:
-        obtenerSumatoria(n)
-        if n<0:
-            return "El número debe ser mayor que 0."
-    else: 
-        return "Debe ingresar solamente valores numéricos."
+    if isinstance(n,int)==True:
+        if n>0:
+            obtenerSumatoria(n)
+        else:
+            print("Debe ser mayor que 0.")
     return ""
 
 def opcionobtenerSumatoria(n):
@@ -60,7 +60,7 @@ def opcionobtenerSumatoria(n):
             n=int(input("Digite un número límite de la sumatoria: "))
             return print(obtenerSumatoriaAux(n))
         except:
-            return "Los valores deben ser números enteros."
+            return print("Los valores deben ser números enteros.")
 #3
 def esNumeroPrimoAux(n):
     """
@@ -68,12 +68,11 @@ def esNumeroPrimoAux(n):
     E (int): Valores ingresados por el usuario
     S (func or string): Función ya validada o mensaje del error
     """
-    if isinstance(n, int)==True:
-        esNumeroPrimo(n)
-        if n<1:
-            return "El número debe ser mayor que 1."
-    else: 
-        return "Debe ingresar solamente valores numéricos."    
+    if isinstance(n,int)==True:
+        if n>0:
+            esNumeroPrimo(n)
+        else:
+            print("Debe ser mayor que 0.")
     return ""
 
 def opcionoesNumeroPrimo(n):
@@ -88,7 +87,7 @@ def opcionoesNumeroPrimo(n):
             n=int(input("Digite un número: "))
             return print(esNumeroPrimoAux(n))
         except:
-            return "Los valores deben ser números enteros."
+            return print("Los valores deben ser números enteros.")
 #4
 def sumarMultiplosAux(n, mult):
     """
@@ -96,14 +95,13 @@ def sumarMultiplosAux(n, mult):
     E (int): Valores ingresados por el usuario
     S (func or string): Función ya validada o mensaje del error
     """
-    if isinstance(n and mult, int)==True:
-        obtenerSumatoria(n)
-        if n<0 or mult<0:
-            return "El número debe ser mayor que 0."
-    else: 
-        return "Debe ingresar solamente valores numéricos."
-    return ""
-    
+    if isinstance(n, int)==True and isinstance(mult, int):
+        if n>0 and mult>0:
+            sumarMultiplos(n, mult)
+        else:
+            return "Debe ser mayor que 0."
+    return""
+
 def opcionsumarMultilpos(n, mult):
     """
     F: Entradas de la función sumar múltiplos
@@ -111,13 +109,13 @@ def opcionsumarMultilpos(n, mult):
     S (int): Valor de la operación ya realizada
     """
     while True:
-        try:
-            print("Suma de los múltiplos del dígito.")
+        try: 
+            print("Digite número y un dígito, y calcula la suma de todos sus dígitos, siempre que sean múltiplos del dígito especificado")
             n=int(input("Digite un número: "))
             mult=int(input("Digite un dígito: "))
-            return print(sumarMultiplosAux(n, mult))
+            print(sumarMultiplosAux(n, mult))
         except:
-            return "Los valores deben ser números enteros."
+            print("Los valores deben ser números enteros.")
 #5
 def obtenerFibonacciAux(n):
     """
@@ -125,12 +123,11 @@ def obtenerFibonacciAux(n):
     E (int): Valores ingresados por el usuario
     S (func or string): Función ya validada o mensaje del error
     """
-    if isinstance(n, int)==True:
-        obtenerSumatoria(n)
-        if n<1:
-            return "El número debe ser mayor que 1."
-    else: 
-        return "Debe ingresar solamente valores numéricos."
+    if isinstance(n,int)==True:
+        if n>=1:
+            obtenerFibonacci(n)
+        else:
+            print("Debe ser mayor o igual que 1.")
     return ""
 
 def opcionobtenerFibonacci(n):
@@ -141,11 +138,12 @@ def opcionobtenerFibonacci(n):
     """
     while True:
         try: 
-            print("Obtiene la suseción de Fibonacci del número dado.")
-            n=int(input("Digite un número: "))
+            print("Obtener la sucesión de Fibonacci es la sucesión infinita de números naturales del n-ésimo número.")
+            n=int(input("Digite un el número: "))
             return print(obtenerFibonacciAux(n))
         except:
-            return "Los valores deben ser números enteros."
+            return print("Los valores deben ser números enteros.")
+
 #6
 def esPerfectoAux(n):
     """
@@ -153,12 +151,13 @@ def esPerfectoAux(n):
     E (int): Valores ingresados por el usuario
     S (func or string): Función ya validada o mensaje del error
     """
-    if isinstance(n, int)==False:
-        return "El dígito debe ser mayor que cero."
-    else: 
-        opcionesPerfecto(n)
+    if isinstance(n, int)==True:
+        if n<0:
+            return print("Debe ser mayor a 0.")
+        else:
+            return esPerfecto(n)
     return ""
-        
+  
 def opcionesPerfecto(n):
     """
     F: Entradas de la función número perfecto
@@ -169,7 +168,7 @@ def opcionesPerfecto(n):
         try:
             print("Número perfecto (Un número perfecto es un número natural que es igual a la suma de sus divisores propios positivos).")
             n=int(input("Digite un número:"))
-            return print(elevarNumeroAux(n))
+            return print(esPerfectoAux(n))
         except:
             return "El valor debe ser entero positivo."
 #7
@@ -179,11 +178,6 @@ def obtenerMCDaux(n, m):
     E (int): Valores ingresados por el usuario
     S (func or string): Función ya validada o mensaje del error
     """
-    if isinstance(n and m, int)==False:
-        return "Ambos datos deben ser enteros positivos mayores o iguales que cero."
-    else: 
-        opcionelevarNumero(n, m)
-    return ""
 
 def opcionobtenerMCD(n,m):
     """
@@ -206,28 +200,13 @@ def obtenerMCMaux(n, m):
     E (int): Valores ingresados por el usuario
     S (func or string): Función ya validada o mensaje del error
     """
-    if isinstance(n and m, int)==False:
-        return "Ambos datos deben ser enteros positivos mayores o iguales que cero."
-    else: 
-        opcionelevarNumero(n, m)
-    return ""
-
+    
 def opcionobtenerMCM(n,m):
     """
     F: Entradas de la función obtener el máximo común divisor
     E (int): Valor de la base y el exponente 
     S (int): Valor de la operación ya realizada
     """
-    while True:
-        try:
-            print("Obtener el mínimo común múltiplo.")
-            n=int(input("Digite un número:"))
-            m=int(input("Digite otro número: "))
-            return print(elevarNumeroAux(n, m))
-        except:
-            return "Los valores deben ser números enteros."
-    
-    
 #menú
 def menuAux(n):
     """
@@ -235,20 +214,6 @@ def menuAux(n):
     E (int): Valor ingresados por el usuario
     S (func or string): Función seleccionada o mensaje del error
     """
-    if isinstance(n, int)==True:
-        menu()
-    else: 
-        return "Debe ingresar solamente números."
-    """
-    F: Revisa que los datos de entrada sean los correctos
-    E: Opción del menú seleccionada
-    S: Función seleccionada
-    """
-    if isinstance(n, int) == True:
-        menu(n)
-    else:
-        return "Debe ingresar sólo números."
-    return ""
 
 def menu():
     """
@@ -268,31 +233,27 @@ def menu():
     print("0. Terminar")
     print("*********************************")
     n=m=mult=exp=0
-    while True: 
-        try: 
-            opcion=int(input("Seleccione la operación a realizar: "))
-            if opcion>=0 and opcion<=8:
-                if opcion==1:
-                    opcionelevarNumero(n, exp)
-                elif opcion==2:
-                    opcionobtenerSumatoria(n)
-                elif opcion==3:
-                    opcionoesNumeroPrimo(n)
-                elif opcion==4:
-                    opcionsumarMultilpos(n, mult)
-                elif opcion==5:
-                    opcionobtenerFibonacci(n)
-                elif opcion==6:
-                    opcionesPerfecto(n)
-                elif opcion==7:
-                    opcionobtenerMCD(n,m)
-                elif opcion==8:
-                    opcionobtenerMCM(n,m)
-                else:
-                    return
-            else: 
-                print("Opción inválida.")
-        except:
-            print("\n 1. Debe ingresar números enteros únicamente. \n 2. No ingrese caracteres diferentes de números. \n")
+    opcion=int(input("Seleccione la operación a realizar: "))
+    if opcion>=0 and opcion<=8:
+        if opcion==1:
+            opcionelevarNumero(n, exp)
+        elif opcion==2:
+            opcionobtenerSumatoria(n)
+        elif opcion==3:
+            opcionoesNumeroPrimo(n)
+        elif opcion==4:
+            opcionsumarMultilpos(n, mult)
+        elif opcion==5:
+            opcionobtenerFibonacci(n)
+        elif opcion==6:
+            opcionesPerfecto(n)
+        elif opcion==7:
+            opcionobtenerMCD(n,m)
+        elif opcion==8:
+            opcionobtenerMCM(n,m)
+        else:
+            return
+    else: 
+        print("Opción inválida.")
 #principal
 menu()

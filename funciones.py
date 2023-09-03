@@ -17,13 +17,10 @@ def obtenerSumatoria(n):
     """
     i=1
     sumatoria=0
-    if n>0:
-        while i<=n:
-            sumatoria = sumatoria+(i**2)
-            i+=1
-        return print(sumatoria)
-    else:
-        return print("Debe ser mayor a 0")
+    while i<=n:
+        sumatoria = sumatoria+(i**2)
+        i+=1
+    return print(sumatoria)
 #3. Determinar si un número es primo
 def esNumeroPrimo(n):
     """
