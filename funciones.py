@@ -5,13 +5,12 @@
 #Versión: 3.11.4
 ###################################################################
 #1. Elevar un número a la potencia
-def elevarNúmero(n, exp):
+def elevarNumero(n, exp):
     """
     """
     if n>=0 and exp>=0:
         res=n**exp
     return print(res)
-
 #2. Sumatoria
 def obtenerSumatoria(n):
     """
@@ -25,7 +24,6 @@ def obtenerSumatoria(n):
         return print(sumatoria)
     else:
         return print("Debe ser mayor a 0")
-
 #3. Determinar si un número es primo
 def esNumeroPrimo(n):
     """
@@ -43,7 +41,6 @@ def esNumeroPrimo(n):
         else:
             return print(False)
     return ""
-
 #4. Sumar digitos múltiplos
 def sumarMultiplos (n, mult):
     """
@@ -56,7 +53,6 @@ def sumarMultiplos (n, mult):
             res+=num
         n//=10
     return print(res)
-
 #5. Fibonacci
 def obtenerFibonacci(n):
     """
@@ -65,7 +61,6 @@ def obtenerFibonacci(n):
         return n
     else:
         return obtenerFibonacci(n - 1) + obtenerFibonacci(n - 2)
-
 #6. Número perfecto
 def esPerfecto(n):
     """
@@ -95,8 +90,6 @@ def obtenerMCD(n, m):
             m//=divisorMN
         else:
             divisorMN+=1   
-    return print(mcd)      
-
 #8. Mínimo común múltiplo MCM
 def obtenerMCM(n,m):
     """
@@ -113,8 +106,3 @@ def obtenerMCM(n,m):
         else:
             divisorMN += 1
     return print(mcm)
-    
-#Programa principal
-n=int(input("n: "))
-m=int(input("m: "))
-print(obtenerMCD(n, m))
