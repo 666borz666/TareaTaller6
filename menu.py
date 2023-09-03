@@ -16,7 +16,8 @@ def elevarNumeroAux(n, exp):
     if isinstance(n and exp, int)==False:
         return "Ambos datos deben ser enteros positivos mayores o iguales que cero."
     else: 
-        opcionelevarNumero(n, exp)
+        elevarNumero(n, exp)
+    return ""
     
 def opcionelevarNumero(n,exp):
     """
@@ -45,6 +46,7 @@ def obtenerSumatoriaAux(n):
             return "El número debe ser mayor que 0."
     else: 
         return "Debe ingresar solamente valores numéricos."
+    return ""
 
 def opcionobtenerSumatoria(n):
     """
@@ -72,6 +74,7 @@ def esNumeroPrimoAux(n):
             return "El número debe ser mayor que 1."
     else: 
         return "Debe ingresar solamente valores numéricos."    
+    return ""
 
 def opcionoesNumeroPrimo(n):
     """
@@ -81,7 +84,7 @@ def opcionoesNumeroPrimo(n):
     """
     while True:
         try: 
-            print("Escriba un número límite y calcula el valor de la sumatoria del número indicado y los números anteriores al cuadrado.")
+            print("Saber si un valor es primo o no.")
             n=int(input("Digite un número: "))
             return print(esNumeroPrimoAux(n))
         except:
@@ -99,6 +102,7 @@ def sumarMultiplosAux(n, mult):
             return "El número debe ser mayor que 0."
     else: 
         return "Debe ingresar solamente valores numéricos."
+    return ""
     
 def opcionsumarMultilpos(n, mult):
     """
@@ -127,6 +131,7 @@ def obtenerFibonacciAux(n):
             return "El número debe ser mayor que 1."
     else: 
         return "Debe ingresar solamente valores numéricos."
+    return ""
 
 def opcionobtenerFibonacci(n):
     """
@@ -136,7 +141,7 @@ def opcionobtenerFibonacci(n):
     """
     while True:
         try: 
-            print("Obtiene la suseción de Fibonaccio del número dado.")
+            print("Obtiene la suseción de Fibonacci del número dado.")
             n=int(input("Digite un número: "))
             return print(obtenerFibonacciAux(n))
         except:
@@ -152,6 +157,7 @@ def esPerfectoAux(n):
         return "El dígito debe ser mayor que cero."
     else: 
         opcionesPerfecto(n)
+    return ""
         
 def opcionesPerfecto(n):
     """
@@ -177,6 +183,7 @@ def obtenerMCDaux(n, m):
         return "Ambos datos deben ser enteros positivos mayores o iguales que cero."
     else: 
         opcionelevarNumero(n, m)
+    return ""
 
 def opcionobtenerMCD(n,m):
     """
@@ -203,6 +210,7 @@ def obtenerMCMaux(n, m):
         return "Ambos datos deben ser enteros positivos mayores o iguales que cero."
     else: 
         opcionelevarNumero(n, m)
+    return ""
 
 def opcionobtenerMCM(n,m):
     """
@@ -231,8 +239,18 @@ def menuAux(n):
         menu()
     else: 
         return "Debe ingresar solamente números."
+    """
+    F: Revisa que los datos de entrada sean los correctos
+    E: Opción del menú seleccionada
+    S: Función seleccionada
+    """
+    if isinstance(n, int) == True:
+        menu(n)
+    else:
+        return "Debe ingresar sólo números."
+    return ""
 
-def menu(n):
+def menu():
     """
     F: Elegir la función que se desea utilizar
     E (int): Número asignado a la función
@@ -249,26 +267,27 @@ def menu(n):
     print("8. Mínimo común múltiplo.")
     print("0. Terminar")
     print("*********************************")
+    n=m=mult=exp=0
     while True: 
         try: 
             opcion=int(input("Seleccione la operación a realizar: "))
             if opcion>=0 and opcion<=8:
                 if opcion==1:
-                    opcionelevarNumero(n)
+                    opcionelevarNumero(n, exp)
                 elif opcion==2:
                     opcionobtenerSumatoria(n)
                 elif opcion==3:
                     opcionoesNumeroPrimo(n)
                 elif opcion==4:
-                    opcionsumarMultilpos(n)
+                    opcionsumarMultilpos(n, mult)
                 elif opcion==5:
                     opcionobtenerFibonacci(n)
                 elif opcion==6:
                     opcionesPerfecto(n)
                 elif opcion==7:
-                    opcionobtenerMCD(n)
+                    opcionobtenerMCD(n,m)
                 elif opcion==8:
-                    opcionobtenerMCM(n)
+                    opcionobtenerMCM(n,m)
                 else:
                     return
             else: 
@@ -276,4 +295,4 @@ def menu(n):
         except:
             print("\n 1. Debe ingresar números enteros únicamente. \n 2. No ingrese caracteres diferentes de números. \n")
 #principal
-menu(n)
+menu()
