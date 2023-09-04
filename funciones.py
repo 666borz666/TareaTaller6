@@ -80,16 +80,11 @@ def esPerfecto(n):
 def obtenerMCD(n, m):
     """
     """
-    divisorMN = 2
-    mcd = 1
-    while n > 1 and m > 1:
-        if n % divisorMN == 0 and m % divisorMN == 0:
-            mcd *= divisorMN
-            n//=divisorMN
-            m//=divisorMN
-        else:
-            divisorMN+=1
-    return print(mcd)
+    while m:
+        n, m = m, n % m
+    
+    print(n)
+    return ""
 #8. Mínimo común múltiplo MCM
 def obtenerMCM(n,m):
     """
