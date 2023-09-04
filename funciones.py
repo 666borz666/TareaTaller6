@@ -1,7 +1,7 @@
 ###################################################################
 #Elaborado por: Alejandro Madrigal y Daniel Campos
 #Fecha de creación: 01/09/2023 Hora: 9:53 am
-#Última edición: 01/09/2023 Hora:
+#Última edición: 03/09/2023 Hora:
 #Versión: 3.11.4
 ###################################################################
 #1. Elevar un número a la potencia
@@ -11,16 +11,20 @@ def elevarNumero(n, exp):
     if n>=0 and exp>=0:
         res=n**exp
     return print(res)
+
 #2. Sumatoria
 def obtenerSumatoria(n):
     """
     """
     i=1
     sumatoria=0
-    while i<=n:
-        sumatoria = sumatoria+(i**2)
-        i+=1
-    return print(sumatoria)
+    if n>0:
+        while i<=n:
+            sumatoria = sumatoria+(i**2)
+            i+=1
+        return print(sumatoria)
+    else:
+        return print("Debe ser mayor a 0")
 #3. Determinar si un número es primo
 def esNumeroPrimo(n):
     """
@@ -56,8 +60,8 @@ def obtenerFibonacci(n):
     """
     if n<=1:
         return n
-    else:
-        return obtenerFibonacci(n - 1) + obtenerFibonacci(n - 2)
+    return obtenerFibonacci(n - 1) + obtenerFibonacci(n - 2)
+
 #6. Número perfecto
 def esPerfecto(n):
     """
@@ -68,30 +72,29 @@ def esPerfecto(n):
         if n % divisor == 0:
             numPerf += divisor
         divisor += 1
+    if numPerf == n:
+        return print(True)
     else:
-        if numPerf == n:
-            return print(True)
-        else:
-            return print(False)
-    return
+        return print(False)
 #7. Maximo común divisor MCD
 def obtenerMCD(n, m):
     """
     """
-    divisorMN = 2    
+    divisorMN = 2
     mcd = 1
-    while n > 1 or m > 1:
+    while n > 1 and m > 1:
         if n % divisorMN == 0 and m % divisorMN == 0:
-            mcd*=divisorMN
+            mcd *= divisorMN
             n//=divisorMN
             m//=divisorMN
         else:
-            divisorMN+=1   
+            divisorMN+=1
+    return print(mcd)
 #8. Mínimo común múltiplo MCM
 def obtenerMCM(n,m):
     """
     """
-    divisorMN = 2    
+    divisorMN = 2
     mcm = 1
     while n > 1 or m > 1:
         if n % divisorMN == 0 or m % divisorMN == 0:
@@ -103,3 +106,4 @@ def obtenerMCM(n,m):
         else:
             divisorMN += 1
     return print(mcm)
+
